@@ -11,25 +11,25 @@ module.exports = {
       },
 
       displayName: {
-        type: Sequelize.STRING,
         allowNull: false,
         field: 'display_name',
+        type: Sequelize.STRING,
       },
 
       email: {
-        type: Sequelize.STRING,
         allowNull: false,
         unique: true,
+        type: Sequelize.STRING,
       },
 
       password: {
-        type: Sequelize.STRING,
         allowNull: false,
+        type: Sequelize.STRING,
       },
 
       image: {
-        type: Sequelize.STRING,
         allowNull: false,
+        type: Sequelize.STRING,
       },
 
     })
