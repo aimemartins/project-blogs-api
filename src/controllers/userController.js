@@ -27,6 +27,21 @@ const createUser = async (req, res) => {
   }
 };
 
+const getUsers = async (req, res) => {
+  try {
+    const users = await userService.getUsers();
+    if (!users) throw Error;
+   
+    res.status(200).json(users);
+  } catch (error) {
+    res.status(500).json({
+      message: 'Erro ao buscar usuários no banco',
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createUser,
+  getUsers,
 };
