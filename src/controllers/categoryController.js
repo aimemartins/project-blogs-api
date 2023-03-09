@@ -7,7 +7,7 @@ const createCategory = async (req, res) => {
   
     return res.status(201).json(category);
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       message: 'Erro ao salvar a categoria no banco',
       error: error.message,
     });

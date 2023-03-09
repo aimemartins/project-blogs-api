@@ -50,7 +50,7 @@ const getUserById = async (req, res) => {
     
     return res.status(200).json(user);
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       message: 'Erro ao buscar usuário no banco',
       error: error.message,
     });
