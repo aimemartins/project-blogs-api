@@ -1,10 +1,13 @@
 const { Category } = require('../models');
 
-const getById = (id) => Category.findByPk(id);
-
 const createCategory = ({ name }) => Category.create({ name });
 
+const getAllCategories = async () => {
+  const categories = await Category.findAll();
+  return categories;
+};
+
 module.exports = {
-  getById,
   createCategory,
+  getAllCategories,
 };
