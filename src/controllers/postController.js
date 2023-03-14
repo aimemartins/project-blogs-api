@@ -30,7 +30,7 @@ const getPostById = async (req, res) => {
     const { id } = req.params;
     const post = await postService.getPostById(id);
     if (!post) return res.status(404).json({ message: 'Post does not exist' });
-    
+
     return res.status(200).json(post);
   } catch (error) {
     return res.status(500).json({
@@ -40,8 +40,28 @@ const getPostById = async (req, res) => {
   }
 };
 
+const updatePost = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const newPost = req.body;
+    
+    const post = await postService.updatePost(id, newPost);
+    const postEdited = await postService.getPostById(id);
+    
+    if (!post) return res.status(404).json({ message: 'Post does not exist' });
+    
+    return res.status(200).json(postEdited);
+  } catch (error) {
+    return res.status(500).json({
+      message: 'Erro ao atualizar o post do banco',
+      error: error.message,
+    });
+  }
+};
+
 module.exports = {
   createPost,
   getPosts,
   getPostById,
+  updatePost,
 };

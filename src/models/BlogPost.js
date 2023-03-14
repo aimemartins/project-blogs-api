@@ -8,14 +8,17 @@ const BlogPostModel = (sequelize, DataTypes) => {
     },
 
     title: {
+      allowNull: false,
       type: DataTypes.STRING,
     },
 
     content: {
+      allowNull: false,
       type: DataTypes.STRING,
     },
 
     userId: {
+      allowNull: false,
       type: DataTypes.INTEGER,
       foreignKey: true,
     },
